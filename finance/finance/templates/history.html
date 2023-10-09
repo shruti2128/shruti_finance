@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <h2>HISTORY</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>NAME</th>
+                <th>SHARES</th>
+                <th>PRICE</th>
+                <th>TYPE</th>
+                <th>SYMBOL</th>
+                <th>TIME</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tran in hist %}
+             <tr>
+                 <td>{{tran["u_id"]}}</td>
+                 <td>{{tran["name"]}}</td>
+                 <td>{{-tran["shares"]}}</td>
+                 <td>{{usd(tran["price"])}}</td>
+                 <td>{{tran["type"]}}</td>
+                 <td>{{tran["symbol"]}}</td>
+                 <td>{{tran["time"]}}</td>
+             </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

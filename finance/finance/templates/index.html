@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <h2>TRANSACTIONS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>SYMBOL</th>
+                <th>NAME</th>
+                <th>SHARES</th>
+                <th>PRICE</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(l) %}
+             <tr>
+                 <td>{{tran[i]["symbol"]}}</td>
+                 <td>{{tran[i]["name"]}}</td>
+                 <td>{{tran[i]["sum(shares)"]}}</td>
+                 <td>{{usd(tran[i]["price"])}}</td>
+                 <td>{{usd(tran[i]["sum(shares*price)"])}}</td>
+             </tr>
+            {% endfor %}
+            <tr>
+                <td>cash</td>
+                <td colspan = "3"></td>
+                <td>{{usd(cash)}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td colspan = "4"></td>
+            <td>{{usd(cash + tot)}}</td>
+        </tfoot>
+    </table>
+{% endblock %}
